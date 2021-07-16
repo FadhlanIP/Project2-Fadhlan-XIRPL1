@@ -111,6 +111,11 @@ public class DataSiswa extends javax.swing.JFrame {
         });
 
         cmdEdit.setText("Ubah");
+        cmdEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEditActionPerformed(evt);
+            }
+        });
 
         cmdTambah.setText("Tambah");
         cmdTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -187,9 +192,16 @@ public class DataSiswa extends javax.swing.JFrame {
 
     private void cmdTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTambahActionPerformed
         // TODO add your handling code here:
-        ManageData tambahData = new ManageData(this, true);
+        ManageData tambahData = new ManageData(this, true, "Tambah","");
         tambahData.setVisible(true);
     }//GEN-LAST:event_cmdTambahActionPerformed
+
+    private void cmdEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditActionPerformed
+        // TODO add your handling code here:
+        String nis = tbl_siswa.getValueAt(baris, 1).toString();
+        ManageData tambahData = new ManageData(this, true, "Edit", nis);
+        tambahData.setVisible(true);
+    }//GEN-LAST:event_cmdEditActionPerformed
 
     /**
      * @param args the command line arguments
